@@ -6,6 +6,49 @@
     <title>Portfolio | Metal & Wood Craftsmanship</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('language-toggle');
+            if (toggleBtn) {
+                const enTexts = document.querySelectorAll('.en-text');
+                const hyTexts = document.querySelectorAll('.hy-text');
+                const html = document.documentElement;
+                // On load, set language from localStorage if available
+                const savedLang = localStorage.getItem('siteLang');
+                if (savedLang && savedLang !== html.lang) {
+                    html.lang = savedLang;
+                    if (savedLang === 'hy') {
+                        enTexts.forEach(el => el.classList.add('hidden'));
+                        hyTexts.forEach(el => el.classList.remove('hidden'));
+                        toggleBtn.querySelector('.en-text').textContent = 'English';
+                        toggleBtn.querySelector('.hy-text').textContent = 'Անգլերեն';
+                    } else {
+                        enTexts.forEach(el => el.classList.remove('hidden'));
+                        hyTexts.forEach(el => el.classList.add('hidden'));
+                        toggleBtn.querySelector('.en-text').textContent = 'Հայերեն';
+                        toggleBtn.querySelector('.hy-text').textContent = 'English';
+                    }
+                }
+                toggleBtn.addEventListener('click', function() {
+                    if (html.lang === 'en') {
+                        html.lang = 'hy';
+                        enTexts.forEach(el => el.classList.add('hidden'));
+                        hyTexts.forEach(el => el.classList.remove('hidden'));
+                        toggleBtn.querySelector('.en-text').textContent = 'English';
+                        toggleBtn.querySelector('.hy-text').textContent = 'Անգլերեն';
+                        localStorage.setItem('siteLang', 'hy');
+                    } else {
+                        html.lang = 'en';
+                        enTexts.forEach(el => el.classList.remove('hidden'));
+                        hyTexts.forEach(el => el.classList.add('hidden'));
+                        toggleBtn.querySelector('.en-text').textContent = 'Հայերեն';
+                        toggleBtn.querySelector('.hy-text').textContent = 'English';
+                        localStorage.setItem('siteLang', 'en');
+                    }
+                });
+            }
+        });
+    </script>
     <style>
         /* Custom CSS for hover effects and animations */
         .portfolio-item {
@@ -113,16 +156,23 @@
     </style>
 </head>
 <body class="bg-gray-50">
+    <!-- Language Toggle -->
+    <div class="bg-white shadow-sm py-2 flex justify-end pr-8">
+        <button id="language-toggle" class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium hover:bg-blue-200 transition">
+            <span class="en-text">Հայերեն</span>
+            <span class="hy-text hidden">English</span>
+        </button>
+    </div>
     <!-- Navigation -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-6 py-3">
             <div class="flex justify-between items-center">
                 <a href="#" class="text-2xl font-bold text-gray-800">
-                    <span class="text-blue-500">Metal</span> & Wood Craft
+                    <span class="en-text text-blue-500">Metal</span><span class="hy-text hidden text-blue-500">Մետաղ</span> <span class="en-text">& Wood Craft</span><span class="hy-text hidden">և Փայտի Արվեստ</span>
                 </a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-gray-800 hover:text-blue-500">Home</a>
-                    <a href="#" class="text-blue-500 font-semibold">Portfolio</a>
+                    <a href="index.html" class="text-gray-800 hover:text-blue-500"><span class="en-text">Home</span><span class="hy-text hidden">Գլխավոր</span></a>
+                    <a href="#" class="text-blue-500 font-semibold"><span class="en-text">Portfolio</span><span class="hy-text hidden">Պորտֆոլիո</span></a>
                 </div>
                 <button class="md:hidden focus:outline-none">
                     <i class="fas fa-bars text-2xl text-gray-800"></i>
@@ -134,9 +184,10 @@
     <!-- Portfolio Header -->
     <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
         <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">Our Portfolio</h1>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4"><span class="en-text">Our Portfolio</span><span class="hy-text hidden">Մեր Պորտֆոլիոն</span></h1>
             <p class="text-xl md:text-2xl max-w-3xl mx-auto">
-                Showcasing our finest craftsmanship in metal and wood works
+                <span class="en-text">Showcasing our finest craftsmanship in metal and wood works</span>
+                <span class="hy-text hidden">Ներկայացնում ենք մեր լավագույն մետաղի և փայտի աշխատանքները</span>
             </p>
         </div>
     </header>
@@ -146,25 +197,25 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-wrap justify-center gap-4 mb-12">
                 <button class="category-btn active px-6 py-2 rounded-full bg-blue-500 text-white font-medium transition-all" data-category="all">
-                    All Works
+                    <span class="en-text">All Works</span><span class="hy-text hidden">Բոլոր Աշխատանքները</span>
                 </button>
                 <button class="category-btn px-6 py-2 rounded-full bg-gray-200 hover:bg-gray-300 font-medium transition-all" data-category="loft-bathroom">
-                    Loft Bathroom Furniture
+                    <span class="en-text">Loft Bathroom Furniture</span><span class="hy-text hidden">Լոֆտ Լոգասենյակի Կահույք</span>
                 </button>
                 <button class="category-btn px-6 py-2 rounded-full bg-gray-200 hover:bg-gray-300 font-medium transition-all" data-category="window-grilles">
-                    Window Grilles
+                    <span class="en-text">Window Grilles</span><span class="hy-text hidden">Պատուհանների Ցանցեր</span>
                 </button>
                 <button class="category-btn px-6 py-2 rounded-full bg-gray-200 hover:bg-gray-300 font-medium transition-all" data-category="gates">
-                    Metal & Wooden Gates
+                    <span class="en-text">Metal & Wooden Gates</span><span class="hy-text hidden">Մետաղյա և Փայտյա Դարպասներ</span>
                 </button>
                 <button class="category-btn px-6 py-2 rounded-full bg-gray-200 hover:bg-gray-300 font-medium transition-all" data-category="stair-railings">
-                    Stair Railings
+                    <span class="en-text">Stair Railings</span><span class="hy-text hidden">Սանդուղքի Պատնեշներ</span>
                 </button>
                 <button class="category-btn px-6 py-2 rounded-full bg-gray-200 hover:bg-gray-300 font-medium transition-all" data-category="metal-furniture">
-                    Metal Furniture
+                    <span class="en-text">Metal Furniture</span><span class="hy-text hidden">Մետաղյա Կահույք</span>
                 </button>
                 <button class="category-btn px-6 py-2 rounded-full bg-gray-200 hover:bg-gray-300 font-medium transition-all" data-category="metal-hangers">
-                    Metal Hangers
+                    <span class="en-text">Metal Hangers</span><span class="hy-text hidden">Մետաղյա Կեռիկներ</span>
                 </button>
             </div>
 
@@ -185,8 +236,8 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Warm Modern Shower Spacey</h3>
-                        <p class="text-gray-600">Matte black frame with natural wood textures</p>
+                        <h3 class="text-xl font-semibold mb-2"><span class="en-text">Warm Modern Shower Spacey</span><span class="hy-text hidden">Լավագույն Մոդեն Շուշերի Տանը</span></h3>
+                        <p class="text-gray-600"><span class="en-text">Matte black frame with natural wood textures</span><span class="hy-text hidden">Մատտ սև պատուհանի հետ բնական փայտի տեքստերը</span></p>
                     </div>
                 </div>
 
@@ -204,8 +255,8 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Modern Minimalist Bathroom Sink</h3>
-                        <p class="text-gray-600">Minimalist Industrial Bathroom Sink with Open Storage Shelves</p>
+                        <h3 class="text-xl font-semibold mb-2"><span class="en-text">Modern Minimalist Bathroom Sink</span><span class="hy-text hidden">Մոդեն Մինիմալիստ Լոգասենյակի Սինկ</span></h3>
+                        <p class="text-gray-600"><span class="en-text">Minimalist Industrial Bathroom Sink with Open Storage Shelves</span><span class="hy-text hidden">Մինիմալիստ Պրոֆեշիոնալ Լոգասենյակի Սինկ հետ բաց պահպանման սելեկտորներ</span></p>
                     </div>
                 </div>
 
@@ -224,8 +275,8 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Vertical Metal Window Grill</h3>
-                        <p class="text-gray-600">Powder-coated steel with clean linear form</p>
+                        <h3 class="text-xl font-semibold mb-2"><span class="en-text">Vertical Metal Window Grill</span><span class="hy-text hidden">Վերական Մետաղյա Պատուհանի Ցանց</span></h3>
+                        <p class="text-gray-600"><span class="en-text">Powder-coated steel with clean linear form</span><span class="hy-text hidden">Պոդերատական ստեյլի հետ մաքուր լիներալ ձև</span></p>
                     </div>
                 </div>
 
@@ -243,8 +294,8 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Modern Geometric Window Grille</h3>
-                        <p class="text-gray-600">Welded steel frame with abstract angular pattern</p>
+                        <h3 class="text-xl font-semibold mb-2"><span class="en-text">Modern Geometric Window Grille</span><span class="hy-text hidden">Մոդեն գեոմետրիկ Պատուհանի Ցանց</span></h3>
+                        <p class="text-gray-600"><span class="en-text">Welded steel frame with abstract angular pattern</span><span class="hy-text hidden">Վելդական ստեյլի պատուհանի հետ անակնկալ անգույն պատասխանատու պատասխանատու ձև</span></p>
                     </div>
                 </div>
 
@@ -263,8 +314,8 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Modern Slat Metal Gate</h3>
-                        <p class="text-gray-600">Horizontal black metal slats with concrete pillars</p>
+                        <h3 class="text-xl font-semibold mb-2"><span class="en-text">Modern Slat Metal Gate</span><span class="hy-text hidden">Մոդեն Սլատ Մետաղյա Դարպաս</span></h3>
+                        <p class="text-gray-600"><span class="en-text">Horizontal black metal slats with concrete pillars</span><span class="hy-text hidden">Հորիզոնական սև մետաղյա սլատներ հետ կոնկրետ պատնեշներ</span></p>
                     </div>
                 </div>
 
@@ -282,8 +333,8 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Rustic Wooden Entrance Gate</h3>
-                        <p class="text-gray-600">Arched wooden gate with stone pillars</p>
+                        <h3 class="text-xl font-semibold mb-2"><span class="en-text">Rustic Wooden Entrance Gate</span><span class="hy-text hidden">Ռուստիկ Փայտյա Մուտքի Դարպաս</span></h3>
+                        <p class="text-gray-600"><span class="en-text">Arched wooden gate with stone pillars</span><span class="hy-text hidden">Արխեդ Փայտյա Դարպաս հետ ամպիերի պատնեշներ</span></p>
                     </div>
                 </div>
 
@@ -302,8 +353,8 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Modern Staircase Metal Railing</h3>
-                        <p class="text-gray-600">Matte black steel with rectangular vertical framing</p>
+                        <h3 class="text-xl font-semibold mb-2"><span class="en-text">Modern Staircase Metal Railing</span><span class="hy-text hidden">Մոդեն Սանդուղքի Մետաղյա Պատնեշ</span></h3>
+                        <p class="text-gray-600"><span class="en-text">Matte black steel with rectangular vertical framing</span><span class="hy-text hidden">Մատտ սև ստեյլի հետ ուղղանկյունաձև վերածվող պատասխանատու ձև</span></p>
                     </div>
                 </div>
 
@@ -321,8 +372,8 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Modern Stairway with Metal Railing</h3>
-                        <p class="text-gray-600">Black metal railings with light wooden handrail</p>
+                        <h3 class="text-xl font-semibold mb-2"><span class="en-text">Modern Stairway with Metal Railing</span><span class="hy-text hidden">Մոդեն Սանդուղքի Մետաղյա Պատնեշ</span></h3>
+                        <p class="text-gray-600"><span class="en-text">Black metal railings with light wooden handrail</span><span class="hy-text hidden">Սև մետաղյա պատնեշներ հետ լիտտում բնական հատակագիծ</span></p>
                     </div>
                 </div>
 
@@ -341,8 +392,8 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Industrial Bathroom with Shower</h3>
-                        <p class="text-gray-600">Black framed metal furniture with wooden accents</p>
+                        <h3 class="text-xl font-semibold mb-2"><span class="en-text">Industrial Bathroom with Shower</span><span class="hy-text hidden">Պրոֆեշիոնալ Լոգասենյակ հետ Շուշեր</span></h3>
+                        <p class="text-gray-600"><span class="en-text">Black framed metal furniture with wooden accents</span><span class="hy-text hidden">Սև պատուհանաձև մետաղյա կահույք հետ բնական ակնավորներ</span></p>
                     </div>
                 </div>
 
@@ -360,8 +411,8 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Rustic Industrial Vanity</h3>
-                        <p class="text-gray-600">Dark metal frame with natural wooden countertop</p>
+                        <h3 class="text-xl font-semibold mb-2"><span class="en-text">Rustic Industrial Vanity</span><span class="hy-text hidden">Ռուստիկ Պրոֆեշիոնալ Վանիլիտ</span></h3>
+                        <p class="text-gray-600"><span class="en-text">Dark metal frame with natural wooden countertop</span><span class="hy-text hidden">Սև մետաղյա պատուհանի հետ բնական փայտանուղային հատակագիծ</span></p>
                     </div>
                 </div>
 
@@ -380,8 +431,8 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Minimalist Tree-Branch Hangers</h3>
-                        <p class="text-gray-600">Black wooden branch-like hangers on white wall</p>
+                        <h3 class="text-xl font-semibold mb-2"><span class="en-text">Minimalist Tree-Branch Hangers</span><span class="hy-text hidden">Մինիմալիստ Ծաղկավոր Պատնեշներ</span></h3>
+                        <p class="text-gray-600"><span class="en-text">Black wooden branch-like hangers on white wall</span><span class="hy-text hidden">Սև բնական ծաղկավոր պատնեշներ սպիտակ պատի վրա</span></p>
                     </div>
                 </div>
 
@@ -399,8 +450,8 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Industrial Kitchen Shelving Unit</h3>
-                        <p class="text-gray-600">Black metal frame with light wooden shelves</p>
+                        <h3 class="text-xl font-semibold mb-2"><span class="en-text">Industrial Kitchen Shelving Unit</span><span class="hy-text hidden">Պրոֆեշիոնալ նախագծային միավոր</span></h3>
+                        <p class="text-gray-600"><span class="en-text">Black metal frame with light wooden shelves</span><span class="hy-text hidden">Սև մետաղյա պատուհանի հետ լիտտում բնական հատակագիծ</span></p>
                     </div>
                 </div>
             </div>
@@ -425,8 +476,8 @@
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Metal & Wood Craft</h3>
-                    <p class="mb-4">Creating bespoke metal and wood works with precision and artistry since 2005.</p>
+                    <h3 class="text-xl font-bold mb-4"><span class="en-text">Metal & Wood Craft</span><span class="hy-text hidden">Մետաղ և փայտի Արվեստ</span></h3>
+                    <p class="mb-4"><span class="en-text">Creating bespoke metal and wood works with precision and artistry since 2005.</span><span class="hy-text hidden">Ստեղծում ենք բողոքավոր մետաղի և փայտի աշխատանքներ ճշտությամբ և արվեստով այն պատճառով, որ 2005 թվականից</span></p>
                     <div class="flex space-x-4">
                         <!-- <a href="#" class="text-white hover:text-blue-400"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="text-white hover:text-blue-400"><i class="fab fa-instagram"></i></a>
@@ -435,11 +486,11 @@
                 </div>
     <div></div>
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
-                    <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i>6, 4th Minas Avetisyan Street, Yerevan, Armenia</p>
-                    <p class="mb-2"><i class="fas fa-phone mr-2"></i>(374) 912-40034</p>
-                    <p class="text-blue-100"><i class="fab fa-instagram mr-2"></i> <a href="https://www.instagram.com/poghosyans_welding?igsh=bzBqdXM2bDN1bGQ3" class="hover:underline">@poghosyans_welding</a></p>
-                    <p class="mb-2"><i class="fas fa-envelope mr-2"></i>info@poghosyanswelding.com</p>
+                    <h3 class="text-xl font-bold mb-4"><span class="en-text">Contact Us</span><span class="hy-text hidden">Կապեք մեզ</span></h3>
+                    <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i><span class="en-text">6, 4th Minas Avetisyan Street, Yerevan, Armenia</span><span class="hy-text hidden">6, 4-րդ Մինաս Ավետիսյան փողոց, Երևան, Հայաստան</span></p>
+                    <p class="mb-2"><i class="fas fa-phone mr-2"></i><span class="en-text">(374) 912-40034</span><span class="hy-text hidden">(374) 912-40034</span></p>
+                    <p class="text-blue-100"><i class="fab fa-instagram mr-2"></i> <a href="https://www.instagram.com/poghosyans_welding?igsh=bzBqdXM2bDN1bGQ3" class="hover:underline"><span class="en-text">@poghosyans_welding</span><span class="hy-text hidden">@poghosyans_welding</span></a></p>
+                    <p class="mb-2"><i class="fas fa-envelope mr-2"></i><span class="en-text">info@poghosyanswelding.com</span><span class="hy-text hidden">info@poghosyanswelding.com</span></p>
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center">
