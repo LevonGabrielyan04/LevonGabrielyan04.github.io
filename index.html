@@ -51,51 +51,62 @@
     </script>
     <style>
         .hero-gradient {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, #4134b7 0%, #6a5be2 100%);
         }
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 10px 25px rgba(65, 52, 183, 0.18);
         }
         .nav-link:hover {
-            color: #93c5fd;
+            color: #6a5be2;
         }
         .section-divider {
-            border-bottom: 2px dashed #3b82f6;
+            border-bottom: 2px dashed #4134b7;
         }
         .hidden {
             display: none;
         }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4134b7;
+            border-radius: 4px;
+        }
     </style>
 </head>
-<body class="font-sans bg-blue-50 text-gray-800">
+<body class="font-sans" style="background-color:#edeafd; color:#4134b7;">
     <!-- Header with Logo -->
     <header class="hero-gradient text-white shadow-lg">
         <div class="container mx-auto px-4 py-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <!-- Logo Space -->
                 <div class="mb-4 md:mb-0 flex items-center">
-                    <div class="w-28 h-28 bg-white rounded-full flex items-center justify-center mr-4">
+                    <div class="w-28 h-28 bg-white rounded-full flex items-center justify-center mr-4" style="border: 3px solid #4134b7;">
                         <img class="rounded-full w-full h-full object-contain" src="media/logo.webp">
                     </div>
                     <div>
-                        <h1 class="text-2xl md:text-3xl font-bold">MetalCraft Solutions</h1>
-                        <p class="text-blue-200">Precision Metal Fabrication</p>
+                        <h1 class="text-2xl md:text-3xl font-bold" style="color:#fff;"><span class="en-text">MetalCraft Solutions</span><span class="hy-text hidden">Մետաղագործական Լուծումներ</span></h1>
+                        <p style="color:#edeafd;"><span class="en-text">Precision Metal Fabrication</span><span class="hy-text hidden">Բարձր ճշգրտության մետաղամշակում</span></p>
                     </div>
                 </div>
                 
                 <!-- Contact Info and Language Toggle -->
                 <div class="text-center md:text-right">
                     <div class="mb-4">
-                        <button id="language-toggle" class="bg-white text-blue-800 px-3 py-1 rounded-full text-sm font-medium hover:bg-blue-100 transition">
+                        <button id="language-toggle" style="background-color:#edeafd;color:#4134b7;" class="px-3 py-1 rounded-full text-sm font-medium hover:opacity-80 transition">
                             <span class="en-text">Հայերեն</span>
                             <span class="hy-text hidden">English</span>
                         </button>
                     </div>
-                    <p class="text-blue-100"><i class="fas fa-phone-alt mr-2"></i> (374) 912-40034</p>
-                    <p class="text-blue-100"><i class="fas fa-envelope mr-2"></i> info@poghosyanswelding.com</p>
-                    <p class="text-blue-100"><i class="fab fa-instagram mr-2"></i> <a href="https://www.instagram.com/poghosyans_welding?igsh=bzBqdXM2bDN1bGQ3" class="hover:underline">@poghosyans_welding</a></p>
-                    <p class="text-blue-100"><i class="fas fa-map-marker-alt mr-2"></i> 6, 4th Minas Avetisyan Street, Yerevan, Armenia </p>
+                    <p style="color:#fff; font-weight:bold;"><i class="fas fa-phone-alt mr-2" style="color:#fff;"></i> <span class="en-text">(374) 912-40034</span><span class="hy-text hidden">(374) 912-40034</span></p>
+                    <p style="color:#fff; font-weight:bold;"><i class="fas fa-envelope mr-2" style="color:#fff;"></i> <span class="en-text">info@poghosyanswelding.com</span><span class="hy-text hidden">info@poghosyanswelding.com</span></p>
+                    <p style="color:#fff; font-weight:bold;"><i class="fab fa-instagram mr-2" style="color:#fff;"></i> <a href="https://www.instagram.com/poghosyans_welding?igsh=bzBqdXM2bDN1bGQ3" class="hover:underline" style="color:#fff; font-weight:bold;"><span class="en-text">@poghosyans_welding</span><span class="hy-text hidden">@poghosyans_welding</span></a></p>
+                    <p style="color:#fff; font-weight:bold;"><i class="fas fa-map-marker-alt mr-2" style="color:#fff;"></i> <span class="en-text">6, 4th Minas Avetisyan Street, Yerevan, Armenia</span><span class="hy-text hidden">Ք. Երևան Մ. Ավետիսյան 4-րդ փ.  6 շ.</span></p>
                 </div>
             </div>
         </div>
@@ -106,14 +117,14 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-wrap justify-center md:justify-between items-center py-3">
                 <div class="md:hidden">
-                    <button id="menu-toggle" class="text-blue-600 focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
+                    <button id="menu-toggle" class="focus:outline-none" style="color:#4134b7;">
+                        <i class="fas fa-bars text-2xl" style="color:#4134b7;"></i>
                     </button>
                 </div>
                 <div id="menu-items" class="hidden md:flex space-x-1 w-full md:w-auto mt-2 md:mt-0">
-                    <a href="portfolio.html" class="nav-link px-4 py-2 text-blue-800 hover:text-blue-600 font-medium rounded-md transition">Portfolio</a>
-                    <a href="#about" class="nav-link px-4 py-2 text-blue-800 hover:text-blue-600 font-medium rounded-md transition">About</a>
-                    <a href="#testimonials" class="nav-link px-4 py-2 text-blue-800 hover:text-blue-600 font-medium rounded-md transition">Testimonials</a>
+                    <a href="portfolio.html" class="nav-link px-4 py-2 font-medium rounded-md transition" style="color:#4134b7;"><span class="en-text">Portfolio</span><span class="hy-text hidden">Պորտֆոլիո</span></a>
+                    <a href="#about" class="nav-link px-4 py-2 font-medium rounded-md transition" style="color:#4134b7;"><span class="en-text">About</span><span class="hy-text hidden">Մասին</span></a>
+                    <a href="#testimonials" class="nav-link px-4 py-2 font-medium rounded-md transition" style="color:#4134b7;"><span class="en-text">Testimonials</span><span class="hy-text hidden">Կարծիքներ</span></a>
                 </div>
             </div>
         </div>
@@ -132,7 +143,7 @@
                     <span class="hy-text hidden">20+ տարվա փորձ բարձրորակ, դիմացկուն մետաղե արտադրանքի ստեղծման համար բնակելի և առևտրային հաճախորդների համար:</span>
                 </p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="portfolio.html" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+                    <a href="portfolio.html" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:opacity-80 transition duration-300" style="background-color:rgba(65,52,183,0.1);">
                         <span class="en-text">View Work</span>
                         <span class="hy-text hidden">Դիտել Աշխատանքները</span>
                     </a>
@@ -149,7 +160,7 @@
     <!-- About Section -->
     <section id="about" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 text-blue-800">
+            <h2 class="text-3xl font-bold text-center mb-12" style="color:#4134b7;">
                 <span class="en-text">About Me</span>
                 <span class="hy-text hidden">Իմ Մասին</span>
             </h2>
@@ -160,7 +171,7 @@
                     </div>
                 </div>
                 <div class="md:w-2/3 md:pl-12">
-                    <h3 class="text-2xl font-semibold text-blue-700 mb-4">
+                    <h3 class="text-2xl font-semibold mb-4" style="color:#4134b7;">
                         <span class="en-text">Karen Poghosyan, Master Fabricator</span>
                         <span class="hy-text hidden">Կարեն Պողոսյան, Վարպետ Մետաղագործ</span>
                     </h3>
@@ -174,21 +185,21 @@
                     </p>
                     
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        <div class="bg-blue-50 p-4 rounded-lg">
-                            <h4 class="font-semibold text-blue-700">20+ <span class="en-text">Years</span><span class="hy-text hidden">Տարի</span></h4>
+                        <div class="p-4 rounded-lg" style="background-color:#edeafd;">
+                            <h4 class="font-semibold" style="color:#4134b7;">20+ <span class="en-text">Years</span><span class="hy-text hidden">Տարի</span></h4>
                             <p class="text-sm text-gray-600">
                                 <span class="en-text">Experience</span>
                                 <span class="hy-text hidden">Փորձ</span>
                             </p>
                         </div>
-                        <div class="bg-blue-50 p-4 rounded-lg">
+                        <div class="p-4 rounded-lg" style="background-color:#edeafd;">
                             <h4 class="font-semibold text-blue-700">500+</h4>
                             <p class="text-sm text-gray-600">
                                 <span class="en-text">Projects Completed</span>
                                 <span class="hy-text hidden">Ավարտված Նախագծեր</span>
                             </p>
                         </div>
-                        <div class="bg-blue-50 p-4 rounded-lg">
+                        <div class="p-4 rounded-lg" style="background-color:#edeafd;">
                             <h4 class="font-semibold text-blue-700">100%</h4>
                             <p class="text-sm text-gray-600">
                                 <span class="en-text">Satisfaction Guarantee</span>
@@ -202,9 +213,9 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-16 bg-blue-50">
+    <section id="services" class="py-16" style="background-color:#edeafd;">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 text-blue-800">
+            <h2 class="text-3xl font-bold text-center mb-12" style="color:#4134b7;">
                 <span class="en-text">Our Services</span>
                 <span class="hy-text hidden">Մեր Ծառայությունները</span>
             </h2>
@@ -292,5 +303,7 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 </body>
 </html>
