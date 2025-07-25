@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metalwork Specialist | Custom Fabrication Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="output.css" rel="stylesheet">
+    <!-- <link href="output.css" rel="stylesheet"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -52,17 +53,17 @@
     </script>
     <style>
         .hero-gradient {
-            background: linear-gradient(135deg, #4134b7 0%, #6a5be2 100%);
+            background: linear-gradient(to bottom, #7c3aed 0%, #a78bfa 60%, #c4b5fd 100%);
         }
         .service-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(65, 52, 183, 0.18);
         }
         .nav-link:hover {
-            color: #6a5be2;
+            color: #c4b5fd;
         }
         .section-divider {
-            border-bottom: 2px dashed #4134b7;
+            border-bottom: 2px dashed #7c3aed;
         }
         .hidden {
             display: none;
@@ -75,57 +76,56 @@
             background: #f1f1f1;
         }
         ::-webkit-scrollbar-thumb {
-            background: #4134b7;
+            background: #7c3aed;
             border-radius: 4px;
         }
     </style>
 </head>
-<body class="font-sans" style="background-color:#edeafd; color:#4134b7;">
+<body class="font-sans" style="background-color:#edeafd; color:#7c3aed;">
     <!-- Header with Logo -->
     <header class="hero-gradient text-white shadow-lg">
         <div class="container mx-auto px-4 py-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <!-- Logo Space -->
-                <div class="mb-4 md:mb-0 flex items-center">
-                    <div class="w-28 h-28 rounded-full flex items-center justify-center mr-4" >
+                <div class="mb-4 md:mb-0 flex gap-4 justify-center items-center flex-wrap">
+                    <div class="w-60 h-60 rounded-full flex items-center justify-center mr-4" >
                         <img class="rounded-full w-full object-contain" src="media/logo.webp">
                     </div>
                     <div>
                         <h1 class="text-2xl md:text-3xl font-bold" style="color:#fff;"><span class="en-text">MetalCraft Solutions</span><span class="hy-text hidden">Մետաղագործական Լուծումներ</span></h1>
-                        <p style="color:#edeafd;"><span class="en-text">Precision Metal Fabrication</span><span class="hy-text hidden">Բարձր ճշգրտության մետաղամշակում</span></p>
+                        <p style="color:#edeafd;">
+                            <span class="en-text text-purple-200 text-base font-medium">Precision Metal Fabrication</span>
+                            <span class="hy-text hidden text-purple-200 text-base font-medium">Բարձր ճշգրտության մետաղամշակում</span>
+                        </p>
                     </div>
                 </div>
                 
                 <!-- Contact Info and Language Toggle -->
                 <div class="text-center md:text-right">
                     <div class="mb-4">
-                        <button id="language-toggle" style="background-color:#edeafd;color:#4134b7;" class="px-3 py-1 rounded-full text-sm font-medium hover:opacity-80 transition">
+                        <button id="language-toggle" style="background-color:#edeafd;color:#7c3aed;" class="px-3 py-1 rounded-full text-sm font-medium hover:opacity-80 transition">
                             <span class="en-text">Հայերեն</span>
                             <span class="hy-text hidden">English</span>
                         </button>
                     </div>
-                    <p style="color:#fff; font-weight:bold;"><i class="fas fa-phone-alt mr-2" style="color:#fff;"></i> <span class="en-text">(374) 912-40034</span><span class="hy-text hidden">(374) 912-40034</span></p>
-                    <p style="color:#fff; font-weight:bold;"><i class="fas fa-envelope mr-2" style="color:#fff;"></i> <span class="en-text">info@poghosyanswelding.com</span><span class="hy-text hidden">info@poghosyanswelding.com</span></p>
-                    <p style="color:#fff; font-weight:bold;"><i class="fab fa-instagram mr-2" style="color:#fff;"></i> <a href="https://www.instagram.com/poghosyans_welding?igsh=bzBqdXM2bDN1bGQ3" class="hover:underline" style="color:#fff; font-weight:bold;"><span class="en-text">@poghosyans_welding</span><span class="hy-text hidden">@poghosyans_welding</span></a></p>
-                    <p style="color:#fff; font-weight:bold;"><i class="fas fa-map-marker-alt mr-2" style="color:#fff;"></i> <span class="en-text">6, 4th Minas Avetisyan Street, Yerevan, Armenia</span><span class="hy-text hidden">Ք. Երևան Մ. Ավետիսյան 4-րդ փ.  6 շ.</span></p>
+                    <p style="color:#fff; font-weight:bold;"><i class="fas fa-phone-alt mr-2"></i> <span class="en-text text-gray-100">(374) 912-40034</span><span class="hy-text hidden text-gray-100">(374) 912-40034</span></p>
+                    <p style="color:#fff; font-weight:bold;"><i class="fas fa-envelope mr-2"></i> <span class="en-text text-gray-100">info@poghosyanswelding.com</span><span class="hy-text hidden text-gray-100">info@poghosyanswelding.com</span></p>
+                    <p style="color:#fff; font-weight:bold;"><i class="fab fa-instagram mr-2"></i> <a href="https://www.instagram.com/poghosyans_welding?igsh=bzBqdXM2bDN1bGQ3" class="hover:underline" style="color:#fff; font-weight:bold;"><span class="en-text text-gray-100">@poghosyans_welding</span><span class="hy-text hidden text-gray-100">@poghosyans_welding</span></a></p>
+                    <p style="color:#fff; font-weight:bold;"><i class="fas fa-map-marker-alt mr-2"></i> <span class="en-text text-gray-100">6, 4th Minas Avetisyan Street, Yerevan, Armenia</span><span class="hy-text hidden text-gray-100">Ք. Երևան Մ. Ավետիսյան 4-րդ փ.  6 շ.</span></p>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-0 z-10">
+    <nav class="bg-white shadow-md top-0 z-10">
         <div class="container mx-auto px-4">
             <div class="flex flex-wrap justify-center md:justify-between items-center py-3">
-                <div class="md:hidden">
-                    <button id="menu-toggle" class="focus:outline-none" style="color:#4134b7;">
-                        <i class="fas fa-bars text-2xl" style="color:#4134b7;"></i>
-                    </button>
-                </div>
+               
                 <div id="menu-items" class="hidden md:flex space-x-1 w-full md:w-auto mt-2 md:mt-0">
-                    <a href="portfolio.html" class="nav-link px-4 py-2 font-medium rounded-md transition" style="color:#4134b7;"><span class="en-text">Portfolio</span><span class="hy-text hidden">Պորտֆոլիո</span></a>
-                    <a href="#about" class="nav-link px-4 py-2 font-medium rounded-md transition" style="color:#4134b7;"><span class="en-text">About</span><span class="hy-text hidden">Մասին</span></a>
-                    <a href="#testimonials" class="nav-link px-4 py-2 font-medium rounded-md transition" style="color:#4134b7;"><span class="en-text">Testimonials</span><span class="hy-text hidden">Կարծիքներ</span></a>
+                    <!-- <a href="portfolio.html" class="nav-link px-4 py-2 font-medium rounded-md transition" style="color:#7c3aed;"><span class="en-text">Portfolio</span><span class="hy-text hidden">Պորտֆոլիո</span></a> -->
+                    <!-- <a href="#about" class="nav-link px-4 py-2 font-medium rounded-md transition" style="color:#7c3aed;"><span class="en-text">About</span><span class="hy-text hidden">Մասին</span></a> -->
+                    <!-- <a href="#testimonials" class="nav-link px-4 py-2 font-medium rounded-md transition" style="color:#7c3aed;"><span class="en-text">Testimonials</span><span class="hy-text hidden">Կարծիքներ</span></a> -->
                 </div>
             </div>
         </div>
@@ -139,7 +139,7 @@
                     <span class="en-text">Custom Metal Fabrication Specialist</span>
                     <span class="hy-text hidden">Մասնագիտացված Մետաղամշակում</span>
                 </h2>
-                <p class="text-xl text-blue-100 mb-6">
+                <p class="text-xl text-white mb-6">
                     <span class="en-text">20+ years of experience creating high-quality, durable metal products for residential and commercial clients.</span>
                     <span class="hy-text hidden">20+ տարվա փորձ բարձրորակ, դիմացկուն մետաղական արտադրանքի ստեղծման ոլորտում անհատ և կոմերցիոն հաճախորդների  պատվերներով։</span>
                 </p>
@@ -161,7 +161,7 @@
     <!-- About Section -->
     <section id="about" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12" style="color:#4134b7;">
+            <h2 class="text-3xl font-bold text-center mb-12" style="color:#7c3aed;">
                 <span class="en-text">About Me</span>
                 <span class="hy-text hidden">Իմ Մասին</span>
             </h2>
@@ -172,7 +172,7 @@
                     </div>
                 </div>
                 <div class="md:w-2/3 md:pl-12">
-                    <h3 class="text-2xl font-semibold mb-4" style="color:#4134b7;">
+                    <h3 class="text-2xl font-semibold mb-4" style="color:#7c3aed;">
                         <span class="en-text">Karen Poghosyan, Master Fabricator</span>
                         <span class="hy-text hidden">Կարեն Պողոսյան, Վարպետ Մետաղագործ</span>
                     </h3>
@@ -187,7 +187,7 @@
                     
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                         <div class="p-4 rounded-lg" style="background-color:#edeafd;">
-                            <h4 class="font-semibold" style="color:#4134b7;">20+ <span class="en-text">Years</span><span class="hy-text hidden">Տարի</span></h4>
+                            <h4 class="font-semibold" style="color:#7c3aed;">20+ <span class="en-text">Years</span><span class="hy-text hidden">Տարի</span></h4>
                             <p class="text-sm text-gray-600">
                                 <span class="en-text">Experience</span>
                                 <span class="hy-text hidden">Փորձ</span>
@@ -216,7 +216,7 @@
     <!-- Services Section -->
     <section id="services" class="py-16" style="background-color:#edeafd;">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12" style="color:#4134b7;">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-700">
                 <span class="en-text">Our Services</span>
                 <span class="hy-text hidden">Մեր Ծառայությունները</span>
             </h2>
@@ -306,5 +306,28 @@
             </div>
         </div>
     </section>
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4" style="color:#fff;"><span class="en-text">Metal & Wood Craft</span><span class="hy-text hidden">Մետաղ և փայտի Արվեստ</span></h3>
+                    <p class="mb-4"><span class="en-text">Creating bespoke metal and wood works with precision and artistry since 2005.</span><span class="hy-text hidden">Անհատական մետաղյա և փայտյա աշխատանքների ստեղծում՝ ճշգրտությամբ և արվեստով՝ սկսած 2005 թվականից։</span></p>
+                    <div class="flex space-x-4">
+                    </div>
+                </div>
+    <div></div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4" style="color:#fff;"><span class="en-text">Contact Us</span><span class="hy-text hidden">Կապեք մեզ</span></h3>
+                    <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i><span class="en-text">6, 4th Minas Avetisyan Street, Yerevan, Armenia</span><span class="hy-text hidden">Ք. Երևան Մ. Ավետիսյան 4-րդ փ.  6 շ.</span></p>
+                    <p class="mb-2"><i class="fas fa-phone mr-2"></i><span class="en-text">(374) 912-40034</span><span class="hy-text hidden">(374) 912-40034</span></p>
+                    <p class="text-blue-100"><i class="fab fa-instagram mr-2"></i> <a href="https://www.instagram.com/poghosyans_welding?igsh=bzBqdXM2bDN1bGQ3" class="hover:underline"><span class="en-text">@poghosyans_welding</span><span class="hy-text hidden">@poghosyans_welding</span></a></p>
+                    <p class="mb-2"><i class="fas fa-envelope mr-2"></i><span class="en-text">info@poghosyanswelding.com</span><span class="hy-text hidden">info@poghosyanswelding.com</span></p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p>&copy; 2005 Poghosyans Welding. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
